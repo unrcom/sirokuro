@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  hreact:
+    image: node:latest
+    container_name: 'sirokuro_1st'
+    hostname: 'sirokuro_1st'
+    ports:
+      - '3000:3000'
+    stdin_open: true
+    tty: true
+    networks:
+      - sirokuronet
+    working_dir: '/var/www/html'
+    volumes:
+      - ./src:/var/www/html
+    networks:
+      - sirokuronet
+networks:
+  sirokuronet:
+    external: true
+
